@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试工具集成</title>
+</head>
+<body>
+<h1>接口自动化-AUTO</h1>
+<input type="button" name="back" value ="返回" onclick="window.location.href='/list'"/>
+<input type="button" name="start" value ="开始执行" onclick="window.location.href='/inferautostart'"/>
+<h1>{{ name }} </h1>
+<a href="../static/report/{{ filename }}">点击查看测试报告</a>
+<input type="button" name="show" value ="加载报告" onclick="showif()"/>
+<input type="button" name="show" value ="加载日志" onclick="showlog()"/>
+{#<a href="../report/2020-11-26-15-37-00_api_report.html">点击查看测试报告</a>#}
+{#<iframe src="../report/2020-11-26-15-37-00_api_report.html" width="2000" height="2000"></iframe>#}
+{#<iframe src="../report/{{ filename }}" width="2000" height="2000"></iframe>#}
+
+{#<iframe src="{{ url_for('static', filename='report/{{ filename }}') }} " height="2000" width="2000"></iframe>#}
+</body>
+<script charset="utf-8" type="text/javascript">
+    function showif() {
+        var iframe = document.createElement('iframe');
+        iframe.src="../static/report/{{ filename }}";
+        {#iframe.src="../report/2020-12-09-13-58-31_api_report.html";#}
+        iframe.width="2000";
+        iframe.height="2000"
+        document.body.appendChild(iframe);
+    }
+    </script>
+
+<script charset="utf-8" type="text/javascript">
+    function showlog() {
+        var iframe = document.createElement('iframe');
+        iframe.src="../logs/log.html";
+        iframe.width="2000";
+        iframe.height="2000"
+        document.body.appendChild(iframe);
+    }
+    </script>
+</html>
